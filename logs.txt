@@ -1,0 +1,137 @@
+(base) siddhant@Siddhants-MacBook-Air lesgo % python client.py
+Starting main execution...
+Establishing connections to MCP servers...
+[04/05/25 23:37:31] INFO     Processing request of type ListToolsRequest                                                  server.py:534
+Retrieved 3 Keynote tools
+[04/05/25 23:37:32] INFO     Processing request of type ListToolsRequest                                                  server.py:534
+Retrieved 5 Pages tools
+[04/05/25 23:37:32] INFO     Processing request of type ListToolsRequest                                                  server.py:534
+Retrieved 4 Notes tools
+Successfully retrieved 12 tools in total
+Creating tools description...
+Added description for tool: keynote_open
+Added description for tool: draw_rectangle
+Added description for tool: add_text_in_keynote
+Added description for tool: pages_open
+Added description for tool: pages_add_text
+Added description for tool: pages_add_heading
+Added description for tool: pages_add_image
+Added description for tool: pages_save_document
+Added description for tool: notes_open
+Added description for tool: notes_create_note
+Added description for tool: notes_add_text
+Added description for tool: notes_list_notes
+Successfully created tools description
+What would you like to create in Keynote, Pages or Notes? lets open keynote write "hello world" and then make a black rectangle and then open notes and create a new note and write in it "end of video"
+Starting iteration loop...
+
+--- Iteration 1 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: FUNCTION_CALL: keynote_open|
+
+DEBUG: Function name: keynote_open
+DEBUG: Parameters: ['']
+DEBUG: Found tool: keynote_open
+DEBUG: Schema properties: {}
+DEBUG: Final arguments: {}
+[04/05/25 23:38:23] INFO     Processing request of type CallToolRequest                                                   server.py:534
+
+--- Iteration 2 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: FUNCTION_CALL: add_text_in_keynote|hello world
+
+DEBUG: Function name: add_text_in_keynote
+DEBUG: Parameters: ['hello world']
+DEBUG: Found tool: add_text_in_keynote
+DEBUG: Schema properties: {'text': {'title': 'Text', 'type': 'string'}}
+DEBUG: Converting parameter text with value hello world to type string
+DEBUG: Final arguments: {'text': 'hello world'}
+[04/05/25 23:38:27] INFO     Processing request of type CallToolRequest                                                   server.py:534
+
+--- Iteration 3 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: FUNCTION_CALL: add_text_in_keynote|hello world
+
+DEBUG: Function name: add_text_in_keynote
+DEBUG: Parameters: ['hello world']
+DEBUG: Found tool: add_text_in_keynote
+DEBUG: Schema properties: {'text': {'title': 'Text', 'type': 'string'}}
+DEBUG: Converting parameter text with value hello world to type string
+DEBUG: Final arguments: {'text': 'hello world'}
+[04/05/25 23:38:28] INFO     Processing request of type CallToolRequest                                                   server.py:534
+
+--- Iteration 4 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: FUNCTION_CALL: draw_rectangle|100|100|500|500
+
+DEBUG: Function name: draw_rectangle
+DEBUG: Parameters: ['100', '100', '500', '500']
+DEBUG: Found tool: draw_rectangle
+DEBUG: Schema properties: {'x1': {'title': 'X1', 'type': 'integer'}, 'y1': {'title': 'Y1', 'type': 'integer'}, 'x2': {'title': 'X2', 'type': 'integer'}, 'y2': {'title': 'Y2', 'type': 'integer'}}
+DEBUG: Converting parameter x1 with value 100 to type integer
+DEBUG: Converting parameter y1 with value 100 to type integer
+DEBUG: Converting parameter x2 with value 500 to type integer
+DEBUG: Converting parameter y2 with value 500 to type integer
+DEBUG: Final arguments: {'x1': 100, 'y1': 100, 'x2': 500, 'y2': 500}
+[04/05/25 23:38:29] INFO     Processing request of type CallToolRequest                                                   server.py:534
+
+--- Iteration 5 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: There was an error drawing the rectangle. I will proceed with opening Notes and creating a new note.
+FUNCTION_CALL: notes_open|
+
+DEBUG: Function name: notes_open
+DEBUG: Parameters: ['']
+DEBUG: Found tool: notes_open
+DEBUG: Schema properties: {}
+DEBUG: Final arguments: {}
+[04/05/25 23:38:31] INFO     Processing request of type CallToolRequest                                                   server.py:534
+
+--- Iteration 6 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: notes_open()
+FUNCTION_CALL: notes_open
+
+DEBUG: Function name: notes_open
+DEBUG: Parameters: []
+DEBUG: Found tool: notes_open
+DEBUG: Schema properties: {}
+DEBUG: Final arguments: {}
+[04/05/25 23:40:34] INFO     Processing request of type CallToolRequest                                                   server.py:534
+
+--- Iteration 7 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: notes_create_note|End of Video|end of video
+
+--- Iteration 8 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: notes_create_note|title|end of video
+
+--- Iteration 9 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: NOTES_CREATE_NOTE: end|end of video
+
+--- Iteration 10 ---
+Preparing to generate LLM response...
+Starting LLM generation...
+LLM generation completed
+LLM Response: notes_create_note|title|end of video
+Reached maximum iterations (10). Stopping.
